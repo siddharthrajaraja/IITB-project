@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search_Results</title>
+</head>
+<body>
+    <center>
+    <%console.log("From Front end")%>
+    <%for(var i=0;i<data_returned.length;i++) {%>
+        <%console.log(data_returned[i]['_score'])%>
+       <div class="card hoverable center-align" style="width: fit-content;">
+        <%=data_returned[i]['_score']%> <br>
+        <% console.log( Object.keys(data_returned[i]['_source']) );%>
+
+        <%Object.keys(data_returned[i]['_source']).forEach((key)=>{%>
+           <%=key%> : <%=data_returned[i]['_source'][key]%> <br>
+        
+       
+        <%})%>
+    </div> 
+       
+        
+        <%};%>
+    </center>
+</body>
+<%-include ('partials/materialize.ejs')%>
+</html>
