@@ -7,7 +7,16 @@
     <title>Search_Results</title>
 </head>
 <body>
+    
+<%-include ('partials/materialize.ejs')%>
+   <%-include ('partials/searchbar.ejs')%>
     <center>
+        
+        <script >
+            var searching='<%=searching%>'
+            M.toast({html:"Searches related to : "+searching,classes:"animated lightSpeedIn delay-2s"});
+
+        </script>
     <%console.log("From Front end")%>
     <%for(var i=0;i<data_returned.length;i++) {%>
         <%console.log(data_returned[i]['_score'])%>
@@ -26,5 +35,4 @@
         <%};%>
     </center>
 </body>
-<%-include ('partials/materialize.ejs')%>
 </html>

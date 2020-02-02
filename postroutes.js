@@ -34,9 +34,10 @@ client.ping({
       })
     
       const response2 = await client.search({
-        index: 'test',
-        type: 'data_set',
+        index: '_all',
+        type: '',
         body: {
+          size:200,
           query: {
             query_string: {
                 "query": req.body.search
@@ -51,7 +52,7 @@ client.ping({
         /*data_returned.forEach(element => {
           console.log(element)
       });*/
-      res.render('ans.ejs',{data_returned})
+      res.render('ans.ejs',{data_returned,searching:req.body.search})
   }
     test()
   
